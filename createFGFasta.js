@@ -4,17 +4,25 @@ const fetch = require('node-fetch');
 initialize();
 
 function initialize() {
-  createDB()
+  createFasta()
   .then(res => {
-    console.log('complete');
+    if (res.success) {
+      console.log(`success ${res.partsCount} parts written to result.fa`);
+    } else {
+      console.log('A problem occured and 0 parts were written to result.fa');
+    }  
   });
 }
 
-async function createDB() {
+async function createFasta() {
   try {
     let parts = await getParts();
     let fasta = await partsToFasta(parts);
     fs.writeFileSync('result.fa', fasta);
+    return {
+      success: true,
+      partsCount: parts.length
+    }
   } catch (error) {
     throw error;
   }
