@@ -4,12 +4,12 @@ const cwd = process.cwd();
 const dbDir = `${cwd}/../blastdb`;
 
 //const move = spawn('mv', [`${cwd}/result.fa`, `${cwd}/../blastdb/result.fa`]);
-const move = spawn(`mv ${cwd}/result.fa ${cwd}/../blastdb/result.fa`, {
+const move = spawn(`mv ${cwd}/result.fa ${dbDir}/freegenes.fa`, {
   stdio: 'inherit',
   shell: true
 });
 
-const build = spawn(`cd ${dbDir} && makeblastdb -dbtype nucl -title FreeGenes -in result.fa -parse_seqids`, {
+const build = spawn(`cd ${dbDir} && makeblastdb -dbtype nucl -title FreeGenes -in freegenes.fa -parse_seqids`, {
   stdio: 'inherit',
   shell: true
 });
