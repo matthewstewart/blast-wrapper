@@ -18,5 +18,5 @@ npm run fg:fasta
 ### Create BLAST Database from FreeGenes API Data
 Takes the `./result.fa` fasta file, moves it to the proper BLAST database directory and triggers a FreeGenes BLAST database build:
 ```bash
-# In Development
+npm run fg:createDB
 ```
