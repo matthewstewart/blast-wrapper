@@ -9,7 +9,7 @@ const move = spawn(`mv ${cwd}/result.fa ${cwd}/../blastdb/result.fa`, {
   shell: true
 });
 
-const build = spawn(`cd ${dbDir} && makeblastdb -dbtype nucl -title FreeGenes -in ${dbDir}/result.fa -parse_seqids`, {
+const build = spawn(`cd ${dbDir} && makeblastdb -dbtype nucl -title FreeGenes -in result.fa -parse_seqids`, {
   stdio: 'inherit',
   shell: true
 });
